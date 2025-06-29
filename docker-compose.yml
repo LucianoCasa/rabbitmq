@@ -1,0 +1,13 @@
+services:
+  rabbitmq:  # Serviço do RabbitMQ
+    image: rabbitmq:management  # Imagem com interface web
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"    # Porta AMQP
+      - "15672:15672"  # Interface Web
+      - "15692:15692"  # Métricas Prometheus
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest  # Usuário padrão
+      - RABBITMQ_DEFAULT_PASS=guest  # Senha padrão
+      - RABBITMQ_DEFAULT_VHOST=/     # VHost padrão
