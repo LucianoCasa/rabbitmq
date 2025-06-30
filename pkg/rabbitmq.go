@@ -76,7 +76,7 @@ func (m *MQ) Consume(queue string, out chan<- amqp.Delivery) error {
 	msgs, err := m.channel.Consume(
 		queue,
 		"",    // consumer
-		true,  // autoAck
+		false,  // autoAck
 		false, // exclusive
 		false, // noLocal
 		false, // noWait
